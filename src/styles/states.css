@@ -1,4 +1,17 @@
 /* ====================================================================
+   Additions to the prototype CSS (not in the handoff stylesheet):
+   - <img> thumbnails (prototype used <image-slot>)
+   - disabled states for SCR-002 controls
+   ==================================================================== */
+.jl-thumb img,
+.jl-img { width: 100%; height: 100%; object-fit: cover; }
+
+.jl-sort select:disabled { cursor: default; opacity: 0.55; }
+.jl-search-btn:disabled { background: var(--color-gray-300); color: var(--color-bg); cursor: default; }
+.jl-pagination button:disabled { color: var(--color-text-tertiary); cursor: default; }
+.jl-pagination button:disabled:hover { color: var(--color-text-tertiary); }
+
+/* ====================================================================
    STATES — loading / empty / error (Uesaka DS v2.1 consistent)
    Sharp radii, no shadows, accent used sparingly.
    ==================================================================== */
