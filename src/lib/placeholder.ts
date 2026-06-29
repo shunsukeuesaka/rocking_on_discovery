@@ -28,7 +28,7 @@ export function thumbPlaceholder(seed: string, label: string): string {
   </linearGradient></defs>
   <rect width="320" height="180" fill="url(#g)"/>
   ${bars}
-  <text x="22" y="60" font-family="Barlow, Arial, sans-serif" font-size="46" font-weight="700" fill="rgba(255,255,255,0.92)">${initial}</text>
+  <text x="22" y="60" font-family="Barlow Condensed, Barlow, Arial, sans-serif" font-size="46" font-weight="700" fill="rgba(255,255,255,0.92)">${initial}</text>
 </svg>`
   return `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`
 }

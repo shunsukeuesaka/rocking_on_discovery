@@ -303,7 +303,7 @@ export function TopPage({ nav }: { nav: Nav }) {
 
       {/* ===== FEATURE / COLUMN ===== */}
       <section className="dp-feature">
-        <div className="dp-ft-label"><span className="dp-display" style={{ fontSize: "48px", letterSpacing: "0.7px", fontFamily: "\"Bebas Neue\"" }}>FEATURE</span><span className="dp-sec-sub">特集</span></div>
+        <div className="dp-ft-label"><span className="dp-display" style={{ fontSize: "48px", letterSpacing: "0.7px" }}>FEATURE</span><span className="dp-sec-sub">特集</span></div>
         <div className="dp-ft-banner" onClick={() => nav('SCR-014')}>
           <Img className="dp-img" src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1200&q=80" alt="音楽フェスのつくり方" seed="col-hero" />
           <div className="dp-ft-overlay">
@@ -341,7 +341,7 @@ export function TopPage({ nav }: { nav: Nav }) {
           </p>
         </div>
         <div>
-          <div className="ft-title" style={{ fontFamily: "\"Hiragino Sans\"" }}>FOR MEMBER</div>
+          <div className="ft-title">FOR MEMBER</div>
           <ul><li>会員登録</li><li>ログイン</li><li>マイページ</li></ul>
         </div>
         <div>

@@ -11,7 +11,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@fontsource/barlow": "^5.1.0",
+    "@fontsource/barlow-condensed": "^5.2.8",
     "@fontsource/noto-sans-jp": "^5.1.0",
     "@fontsource/roboto-mono": "^5.1.0",
     "react": "^18.3.1",
