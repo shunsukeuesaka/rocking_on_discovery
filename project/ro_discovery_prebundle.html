@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <title>Discovery presented by rockin'on — 音楽業界特化キャリアプラットフォーム</title>
+  <meta name="viewport" content="width=1440" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script src="data.js"></script>
+  <script src="image-slot.js"></script>
+  <template id="__bundler_thumbnail" data-bg-color="#FAF9F7">
+    <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+      <rect width="1200" height="800" fill="#FAF9F7"/>
+      <circle cx="600" cy="360" r="150" fill="none" stroke="#1C1C1A" stroke-width="6"/>
+      <circle cx="600" cy="360" r="20" fill="#D93030"/>
+      <text x="600" y="600" font-family="Impact, sans-serif" font-size="86" fill="#1C1C1A" text-anchor="middle" letter-spacing="2">DISCOVERY<tspan fill="#D93030">.</tspan></text>
+      <text x="600" y="660" font-family="monospace" font-size="26" fill="#8A857C" text-anchor="middle" letter-spacing="6">PRESENTED BY ROCKIN'ON</text>
+    </svg>
+  </template>
+</head>
+<body>
+  <div id="app"></div>
+
+  <script type="text/babel" src="public_screens.jsx"></script>
+  <script type="text/babel" src="public_aux.jsx"></script>
+  <script type="text/babel" src="company_admin.jsx"></script>
+
+  <script type="text/babel">
+    const { useState, useEffect } = React;
+
+    function NavBar({ current, onNav, menuOpen, setMenuOpen }) {
+      const screen = window.MW_DATA.screens.find(s => s.id === current);
+      const group = screen?.group || 'public';
+      return (
+        <div className="topbar">
+          <button className="screen-picker" onClick={() => setMenuOpen(!menuOpen)}>
+            <span className="sig">■</span>
+            <span className="code">{current}</span>
+            <span className="name">{screen?.name}</span>
+            <span className="caret">▾</span>
+          </button>
+          <div className="topbar-right">
+            <span className="topbar-group">{group === 'public' ? 'PUBLIC SITE' : group === 'company' ? 'COMPANY CONSOLE' : 'ADMIN CONSOLE'}</span>
+            <span className="topbar-sep">/</span>
+            <span className="topbar-code">{current}</span>
+          </div>
+        </div>
+      );
+    }
+
+    function ScreenMenu({ current, onNav, onClose }) {
+      const groups = { public: [], company: [], admin: [] };
+      window.MW_DATA.screens.forEach(s => groups[s.group].push(s));
+      return (
+        <div className="menu-overlay" onClick={onClose}>
+          <div className="menu-panel" onClick={e => e.stopPropagation()}>
+            <div className="menu-head">
+              <div>
+                <div className="eyebrow">Screen Registry</div>
+                <h2>ALL SCREENS</h2>
+                <div className="menu-sub">Discovery Prototype · {window.MW_DATA.screens.length} screens across 3 areas</div>
+              </div>
+              <button className="menu-close" onClick={onClose}>✕</button>
+            </div>
+            {Object.entries(groups).map(([g, list]) => (
+              <div key={g} className="menu-group">
+                <div className="menu-group-title">
+                  <span className="g-tag">{g.toUpperCase()}</span>
+                  <span className="g-count">{list.length} screens</span>
+                </div>
+                <div className="menu-grid">
+                  {list.map(s => (
+                    <div key={s.id} className={"menu-card" + (s.id === current ? " active" : "")}
+                         onClick={() => { onNav(s.id); onClose(); }}>
+                      <div className="code">{s.id}</div>
+                      <div className="name">{s.name}</div>
+                      <div className="purpose">{s.purpose}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      );
+    }
+
+    function SiteHeader({ onNav, current }) {
+      const screen = window.MW_DATA.screens.find(s => s.id === current);
+      if (!screen || screen.group !== 'public') return null;
+      return (
+        <header className="site-header">
+          <div className="sh-left">
+            <div className="sh-logo" onClick={() => onNav('SCR-001')}><span className="mark">Discovery<span className="r">.</span></span><span className="by">presented by rockin'on</span></div>
+            <nav className="sh-nav">
+              <a onClick={() => onNav('SCR-002')}>求人を探す</a>
+              <a onClick={() => onNav('SCR-014')}>お知らせ</a>
+              <a onClick={() => onNav('SCR-010')}>企業の方へ</a>
+            </nav>
+          </div>
+          <div className="sh-right">
+            <button className="sh-icon" onClick={() => onNav('SCR-008')}>♡</button>
+            <button className="btn-ghost btn-sm" onClick={() => onNav('SCR-007')}>ログイン</button>
+            <button className="btn-primary btn-sm" onClick={() => onNav('SCR-006')}>会員登録</button>
+          </div>
+        </header>
+      );
+    }
+
+    function CompanySidebar({ onNav, current }) {
+      const items = [
+        { id: 'SCR-017', label: 'ダッシュボード', icon: '◉' },
+        { id: 'SCR-018', label: '求人管理', icon: '♪' },
+        { id: 'SCR-020', label: '応募者管理', icon: '◈' },
+        { id: 'SCR-022', label: 'アナリティクス', icon: '▲' },
+      ];
+      return (
+        <aside className="console-sidebar">
+          <div className="cs-logo">Discovery<span className="r">.</span> <span className="sub">COMPANY</span></div>
+          <div className="cs-company">
+            <div className="logo">R</div>
+            <div>
+              <div className="n">rockin'on inc.</div>
+              <div className="s">ENTERPRISE PLAN</div>
+            </div>
+          </div>
+          <nav>
+            {items.map(i => (
+              <a key={i.id} className={current === i.id || (i.id === 'SCR-018' && (current === 'SCR-019')) || (i.id === 'SCR-020' && current === 'SCR-021') ? 'active' : ''}
+                 onClick={() => onNav(i.id)}>
+                <span className="ico">{i.icon}</span>{i.label}
+              </a>
+            ))}
+          </nav>
+          <div className="cs-footer">
+            <a onClick={() => onNav('SCR-001')}>← サイトへ戻る</a>
+          </div>
+        </aside>
+      );
+    }
+
+    function AdminSidebar({ onNav, current }) {
+      const items = [
+        { id: 'SCR-028', label: 'オーバービュー', icon: '◉' },
+        { id: 'SCR-029', label: '求人審査', icon: '⏺' },
+        { id: 'SCR-030', label: '企業管理', icon: '◈' },
+        { id: 'SCR-031', label: '会員管理', icon: '♛' },
+      ];
+      return (
+        <aside className="console-sidebar admin">
+          <div className="cs-logo">Discovery<span className="r">.</span> <span className="sub">ADMIN</span></div>
+          <div className="cs-company">
+            <div className="logo">A</div>
+            <div>
+              <div className="n">System Admin</div>
+              <div className="s">SUPER ACCESS</div>
+            </div>
+          </div>
+          <nav>
+            {items.map(i => (
+              <a key={i.id} className={current === i.id ? 'active' : ''} onClick={() => onNav(i.id)}>
+                <span className="ico">{i.icon}</span>{i.label}
+              </a>
+            ))}
+          </nav>
+          <div className="cs-footer">
+            <a onClick={() => onNav('SCR-001')}>← サイトへ戻る</a>
+          </div>
+        </aside>
+      );
+    }
+
+    function renderScreen(id, ctx, nav) {
+      const P = { nav, ...ctx };
+      switch (id) {
+        case 'SCR-001': return <TopPage {...P} />;
+        case 'SCR-002': return <SearchPage {...P} />;
+        case 'SCR-003': return <JobDetail {...P} />;
+        case 'SCR-004': return <ApplyPage {...P} />;
+        case 'SCR-005': return <ApplyDone {...P} />;
+        case 'SCR-006': return <SignupPage {...P} />;
+        case 'SCR-007': return <LoginPage {...P} />;
+        case 'SCR-008': return <MyPage {...P} />;
+        case 'SCR-009': return <CompanyPage {...P} />;
+        case 'SCR-010': return <CompanyLP {...P} />;
+        case 'SCR-012': return <PasswordResetPage {...P} />;
+        case 'SCR-014': return <NewsPage {...P} />;
+        case 'SCR-015': return <StaticPage {...P} />;
+        case 'SCR-016': return <LoginPage {...P} forCompany />;
+        case 'SCR-017': return <CompanyDashboard {...P} />;
+        case 'SCR-018': return <JobMgmtList {...P} />;
+        case 'SCR-019': return <JobEditor {...P} />;
+        case 'SCR-020': return <ApplicantList {...P} />;
+        case 'SCR-021': return <ApplicantDetail {...P} />;
+        case 'SCR-022': case 'SCR-023': return <AnalyticsPage {...P} />;
+        case 'SCR-024': case 'SCR-025': case 'SCR-026': return <CompanyDashboard {...P} />;
+        case 'SCR-027': return <LoginPage {...P} forAdmin />;
+        case 'SCR-028': return <AdminOverview {...P} />;
+        case 'SCR-029': return <AdminReview {...P} />;
+        case 'SCR-030': case 'SCR-031': return <AdminCompanies {...P} />;
+        case 'SCR-032': return <AdminMembers {...P} />;
+        case 'SCR-033': return <AnalyticsPage {...P} />;
+        case 'SCR-034': return <AdminOverview {...P} />;
+        default: return <div style={{ padding: 40 }}>Not found: {id}</div>;
+      }
+    }
+
+    function App() {
+      const [current, setCurrent] = useState(() => localStorage.getItem('mw_current') || 'SCR-001');
+      const [ctx, setCtx] = useState({});
+      const [menuOpen, setMenuOpen] = useState(false);
+
+      useEffect(() => { localStorage.setItem('mw_current', current); window.scrollTo({ top: 0 }); }, [current]);
+
+      const nav = (id, c = {}) => { setCtx(c); setCurrent(id); };
+      const screen = window.MW_DATA.screens.find(s => s.id === current);
+      const group = screen?.group || 'public';
+
+      let content;
+      if (group === 'company' && !['SCR-016'].includes(current)) {
+        content = (
+          <div className="console-layout" data-screen-label={current}>
+            <CompanySidebar onNav={nav} current={current} />
+            <div className="console-main">{renderScreen(current, ctx, nav)}</div>
+          </div>
+        );
+      } else if (group === 'admin' && !['SCR-027'].includes(current)) {
+        content = (
+          <div className="console-layout" data-screen-label={current}>
+            <AdminSidebar onNav={nav} current={current} />
+            <div className="console-main">{renderScreen(current, ctx, nav)}</div>
+          </div>
+        );
+      } else {
+        content = (
+          <div data-screen-label={current}>
+            <SiteHeader onNav={nav} current={current} />
+            {renderScreen(current, ctx, nav)}
+          </div>
+        );
+      }
+
+      return (
+        <>
+          <NavBar current={current} onNav={nav} menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+          <div className="viewport">{content}</div>
+          {menuOpen && <ScreenMenu current={current} onNav={nav} onClose={() => setMenuOpen(false)} />}
+        </>
+      );
+    }
+
+    // Wait for all babel scripts to finish
+    setTimeout(() => {
+      ReactDOM.createRoot(document.getElementById('app')).render(<App />);
+    }, 300);
+  </script>
+</body>
+</html>
