@@ -1,6 +1,5 @@
-import { JobListPage } from './pages/JobListPage'
-import { nav } from './lib/nav'
+import { AppShell } from './app/AppShell'
 
 export default function App() {
-  return <JobListPage nav={nav} />
+  return <AppShell />
 }

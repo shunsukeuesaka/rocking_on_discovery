@@ -1,0 +1,115 @@
+// MusicWork — full mock dataset, ported from design_handoff_job_list/data.js
+// (window.MW_DATA). Production replaces these with real APIs.
+import type { Category, Job } from '../types'
+
+export interface Applicant {
+  id: string
+  name: string
+  kana: string
+  role: string
+  status: 'new' | 'review' | 'interview' | 'offer'
+  age: number
+  exp: string
+  applied: string
+  initial: string
+}
+
+export interface Column {
+  cat: string
+  title: string
+  date: string
+}
+
+export type ScreenGroup = 'public' | 'company' | 'admin'
+
+export interface Screen {
+  id: string
+  group: ScreenGroup
+  name: string
+  purpose: string
+}
+
+export const JOBS: Job[] = [
+  { id: 'J-2401', img: 'assets/us/1b733ce7246613b8.jpg', title: 'A&Rディレクター', co: "rockin'on inc.", coLogo: 'R', cat: 'A&R・プロデュース', emp: '正社員', loc: '東京・渋谷', salary: '600〜900万円', salaryNum: 900, tags: ['マネジメント', '新人発掘', 'ライブ'], fav: true, new: true, posted: '2日前', desc: 'アーティストの発掘から作品制作・プロモーションまでを一貫して担当。レーベル運営の中核を担うポジションです。', applyType: 'form' },
+  { id: 'J-2402', img: 'assets/us/62bc5486a419ef3a.jpg', title: 'ライブプロダクション マネージャー', co: 'Sound Stage Tokyo', coLogo: 'S', cat: 'ライブ制作', emp: '正社員', loc: '東京・港区', salary: '500〜750万円', salaryNum: 750, tags: ['現場統括', 'フェス', 'PA/照明'], fav: false, new: true, posted: '3日前', desc: 'フェス・ライブの現場を統括。会場手配、スタッフ管理、進行管理まで公演全体をマネジメントします。', applyType: 'form' },
+  { id: 'J-2403', img: 'assets/us/6bde306c92b774b4.jpg', title: 'マスタリングエンジニア', co: 'Studio Sonic', coLogo: 'SO', cat: 'レコーディング', emp: '業務委託', loc: 'リモート可', salary: '応相談', salaryNum: 0, tags: ['ProTools', 'Dolby Atmos'], fav: false, new: false, posted: '5日前', desc: '配信・パッケージ向けのマスタリング業務。Dolby Atmos など立体音響制作の経験者を歓迎します。', applyType: 'external', applyUrl: 'https://studiosonic.example.com/careers' },
+  { id: 'J-2404', img: 'assets/us/74ea8c29e544340c.jpg', title: 'MVディレクター', co: 'Grain Pictures', coLogo: 'G', cat: '映像・写真', emp: '契約社員', loc: '東京・中野区', salary: '450〜650万円', salaryNum: 650, tags: ['ミュージックビデオ', '撮影', '編集'], fav: true, new: false, posted: '1週間前', desc: 'ミュージックビデオの企画・撮影・編集を担当。アーティストの世界観を映像で表現するクリエイティブ職です。', applyType: 'form' },
+  { id: 'J-2405', img: 'assets/us/76c62f5d21ffad6c.jpg', title: 'フェスブッキング担当', co: 'Night Owl Fest', coLogo: 'N', cat: 'マネジメント', emp: '正社員', loc: '大阪・北区', salary: '420〜600万円', salaryNum: 600, tags: ['アーティスト交渉', '海外'], fav: false, new: true, posted: '今日', desc: 'フェス出演アーティストのブッキング・交渉を担当。国内外のマネジメントとの折衝を行います。', applyType: 'form' },
+  { id: 'J-2406', img: 'assets/us/7fefe37856337457.jpg', title: '楽曲プロデューサー（EDM/Pop）', co: 'Neon Records', coLogo: 'NR', cat: 'A&R・プロデュース', emp: '業務委託', loc: 'リモート可', salary: '成果報酬', salaryNum: 0, tags: ['DTM', 'Logic', 'Ableton'], fav: false, new: false, posted: '4日前', desc: '所属アーティストへの楽曲提供・プロデュース。トラックメイクからアレンジまで幅広く手がけます。', applyType: 'external', applyUrl: 'https://neonrecords.example.com/jobs' },
+  { id: 'J-2407', img: 'assets/us/918698519eb4d73f.jpg', title: 'アーティストマネージャー', co: 'Blue Echo Artists', coLogo: 'BE', cat: 'マネジメント', emp: '正社員', loc: '東京・代官山', salary: '400〜550万円', salaryNum: 550, tags: ['スケジュール管理', '広報'], fav: false, new: false, posted: '1週間前', desc: '所属アーティストのスケジュール管理・現場同行・広報対応など、活動全般をサポートします。', applyType: 'form' },
+  { id: 'J-2408', img: 'assets/us/a4317f9f7d240dc2.jpg', title: 'PA/音響エンジニア', co: 'Live House Moonlight', coLogo: 'LM', cat: 'ライブ制作', emp: '正社員', loc: '東京・下北沢', salary: '350〜480万円', salaryNum: 480, tags: ['ライブハウス', 'SR'], fav: true, new: false, posted: '10日前', desc: 'ライブハウスでのPA・音響オペレーション。仕込みから本番、撤収までライブの音をつくる仕事です。', applyType: 'form' },
+  { id: 'J-2409', img: 'assets/us/d13b2321fd2a55d9.jpg', title: 'Web編集者（音楽メディア）', co: "rockin'on inc.", coLogo: 'R', cat: '編集・ライター', emp: '正社員', loc: '東京・渋谷', salary: '420〜600万円', salaryNum: 600, tags: ['編集', 'インタビュー', 'SEO'], fav: false, new: false, posted: '2週間前', desc: '音楽メディアの記事編集・インタビュー取材を担当。企画立案からSEOを意識した編集まで行います。', applyType: 'form' },
+]
+
+export const APPLICANTS: Applicant[] = [
+  { id: 'A-001', name: '佐藤 陽翔', kana: 'Sato Haruto', role: 'A&Rディレクター', status: 'new', age: 28, exp: '音楽ディストリ 4年', applied: '2026-04-19', initial: 'H' },
+  { id: 'A-002', name: '山田 彩花', kana: 'Yamada Ayaka', role: 'A&Rディレクター', status: 'review', age: 31, exp: 'レーベル制作 6年', applied: '2026-04-18', initial: 'A' },
+  { id: 'A-003', name: '鈴木 蓮', kana: 'Suzuki Ren', role: 'ライブプロダクション', status: 'interview', age: 29, exp: 'ライブハウス 5年', applied: '2026-04-17', initial: 'R' },
+  { id: 'A-004', name: '高橋 美咲', kana: 'Takahashi Misaki', role: 'A&Rディレクター', status: 'new', age: 26, exp: '音楽配信 3年', applied: '2026-04-16', initial: 'M' },
+  { id: 'A-005', name: '伊藤 大輝', kana: 'Ito Daiki', role: 'MVディレクター', status: 'offer', age: 34, exp: '映像制作 10年', applied: '2026-04-14', initial: 'D' },
+  { id: 'A-006', name: '中村 葵', kana: 'Nakamura Aoi', role: 'Webエディター', status: 'review', age: 27, exp: 'Web編集 4年', applied: '2026-04-13', initial: 'A' },
+]
+
+export const COLUMNS: Column[] = [
+  { cat: 'Career', title: '音楽プロデューサーになるには：現役A&Rが語るリアル', date: '2026.04.18' },
+  { cat: 'Industry', title: 'ライブエンタメ市場は2030年までに2倍—最新動向', date: '2026.04.15' },
+  { cat: 'Interview', title: '独立した3人のマネージャーが語るキャリアの分岐点', date: '2026.04.10' },
+]
+
+export const CATEGORIES: Category[] = [
+  { en: 'A&R', ja: 'A&R・プロデュース', count: 42, icon: '♪' },
+  { en: 'LIVE', ja: 'ライブ制作', count: 38, icon: '♬' },
+  { en: 'REC', ja: 'レコーディング', count: 24, icon: '⏺' },
+  { en: 'MGMT', ja: 'マネジメント', count: 31, icon: '★' },
+  { en: 'VIDEO', ja: '映像・写真', count: 19, icon: '▶' },
+  { en: 'EDIT', ja: '編集・ライター', count: 27, icon: '✎' },
+  { en: 'MKT', ja: 'マーケティング', count: 22, icon: '◎' },
+  { en: 'BIZ', ja: '企画・営業', count: 33, icon: '◈' },
+]
+
+export const SCREENS: Screen[] = [
+  { id: 'SCR-001', group: 'public', name: 'トップページ', purpose: 'サービスの入口。求人検索のハブ' },
+  { id: 'SCR-002', group: 'public', name: '求人一覧', purpose: '条件で絞り込んで求人を検索' },
+  { id: 'SCR-003', group: 'public', name: '求人詳細', purpose: '求人の全情報を表示し応募へ導く' },
+  { id: 'SCR-004', group: 'public', name: '応募フォーム', purpose: '応募情報を入力して送信' },
+  { id: 'SCR-005', group: 'public', name: '応募完了', purpose: '応募受付のサンクス画面' },
+  { id: 'SCR-006', group: 'public', name: '会員登録', purpose: '新規会員登録フォーム' },
+  { id: 'SCR-007', group: 'public', name: 'ログイン', purpose: '会員のログイン画面' },
+  { id: 'SCR-008', group: 'public', name: 'マイページ', purpose: 'プロフィール・応募履歴・設定' },
+  { id: 'SCR-009', group: 'public', name: '企業詳細', purpose: '企業プロフィールと掲載求人一覧' },
+  { id: 'SCR-010', group: 'public', name: '企業向けLP', purpose: '掲載企業向けの訴求LP' },
+  { id: 'SCR-012', group: 'public', name: 'パスワードリセット', purpose: 'パスワード再設定フロー' },
+  { id: 'SCR-014', group: 'public', name: 'お知らせ', purpose: 'サービスからのお知らせ' },
+  { id: 'SCR-015', group: 'public', name: '静的ページ群', purpose: '規約・FAQ・お問い合わせ' },
+  { id: 'SCR-016', group: 'company', name: 'ログイン（企業）', purpose: '企業担当者のログイン' },
+  { id: 'SCR-017', group: 'company', name: 'ダッシュボード', purpose: '企業管理のTOP・KPI表示' },
+  { id: 'SCR-018', group: 'company', name: '求人管理一覧', purpose: '企業の求人をステータス別に管理' },
+  { id: 'SCR-019', group: 'company', name: '求人作成・編集', purpose: 'RTEで求人を作成' },
+  { id: 'SCR-020', group: 'company', name: '応募者管理', purpose: '応募者一覧とステータス管理' },
+  { id: 'SCR-021', group: 'company', name: '応募者詳細', purpose: '応募者の情報と書類を閲覧' },
+  { id: 'SCR-022', group: 'company', name: '応募者一括DL', purpose: 'CSV/Excelでエクスポート' },
+  { id: 'SCR-023', group: 'company', name: 'アナリティクス', purpose: 'PV・応募数推移・パフォーマンス' },
+  { id: 'SCR-024', group: 'company', name: '企業プロフィール設定', purpose: '会社情報・ロゴ・説明文' },
+  { id: 'SCR-025', group: 'company', name: '通知設定', purpose: 'メール通知管理' },
+  { id: 'SCR-026', group: 'company', name: 'アカウント管理', purpose: '担当者アカウントと権限' },
+  { id: 'SCR-027', group: 'admin', name: 'ログイン（Admin）', purpose: '運営スタッフのログイン' },
+  { id: 'SCR-028', group: 'admin', name: '管理概要', purpose: '審査待ち・KPIのAdmin TOP' },
+  { id: 'SCR-029', group: 'admin', name: '求人審査', purpose: '審査ワークフロー' },
+  { id: 'SCR-030', group: 'admin', name: '求人全件管理', purpose: '全求人を横断管理' },
+  { id: 'SCR-031', group: 'admin', name: '企業管理', purpose: '企業アカウント発行・停止' },
+  { id: 'SCR-032', group: 'admin', name: '会員管理', purpose: '登録ユーザー管理' },
+  { id: 'SCR-033', group: 'admin', name: 'レポート', purpose: '全体KPIダッシュボード' },
+  { id: 'SCR-034', group: 'admin', name: 'お問い合わせ管理', purpose: '問い合わせ対応管理' },
+]
+
+export const MW_DATA = {
+  jobs: JOBS,
+  applicants: APPLICANTS,
+  columns: COLUMNS,
+  categories: CATEGORIES,
+  screens: SCREENS,
+}
+
+export function findScreen(id: string): Screen | undefined {
+  return SCREENS.find((s) => s.id === id)
+}
