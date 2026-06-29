@@ -16,6 +16,20 @@ import { PasswordResetPage } from '../screens/public/PasswordResetPage'
 import { NewsPage } from '../screens/public/NewsPage'
 import { StaticPage } from '../screens/public/StaticPage'
 
+// COMPANY console screens
+import { CompanyDashboard } from '../screens/console/CompanyDashboard'
+import { JobMgmtList } from '../screens/console/JobMgmtList'
+import { JobEditor } from '../screens/console/JobEditor'
+import { ApplicantList } from '../screens/console/ApplicantList'
+import { ApplicantDetail } from '../screens/console/ApplicantDetail'
+import { AnalyticsPage } from '../screens/console/AnalyticsPage'
+
+// ADMIN console screens
+import { AdminOverview } from '../screens/admin/AdminOverview'
+import { AdminReview } from '../screens/admin/AdminReview'
+import { AdminCompanies } from '../screens/admin/AdminCompanies'
+import { AdminMembers } from '../screens/admin/AdminMembers'
+
 /** Navigation payload carried alongside a screen change (mirrors prototype ctx). */
 export interface ScreenCtx {
   job?: Job
@@ -59,12 +73,40 @@ export function renderScreen(id: ScreenId, nav: Nav, ctx: ScreenCtx) {
     // ---------- COMPANY ----------
     case 'SCR-016':
       return <LoginPage nav={nav} forCompany />
-    // SCR-017/018/019/020/021/022/023/024/025/026 — todo
+    case 'SCR-017':
+      return <CompanyDashboard nav={nav} />
+    case 'SCR-018':
+      return <JobMgmtList nav={nav} />
+    case 'SCR-019':
+      return <JobEditor nav={nav} />
+    case 'SCR-020':
+      return <ApplicantList nav={nav} />
+    case 'SCR-021':
+      return <ApplicantDetail nav={nav} />
+    case 'SCR-022':
+    case 'SCR-023':
+      return <AnalyticsPage nav={nav} />
+    case 'SCR-024':
+    case 'SCR-025':
+    case 'SCR-026':
+      return <CompanyDashboard nav={nav} />
 
     // ---------- ADMIN ----------
     case 'SCR-027':
       return <LoginPage nav={nav} forAdmin />
-    // SCR-028/029/030/031/032/033/034 — todo
+    case 'SCR-028':
+      return <AdminOverview nav={nav} />
+    case 'SCR-029':
+      return <AdminReview nav={nav} />
+    case 'SCR-030':
+    case 'SCR-031':
+      return <AdminCompanies nav={nav} />
+    case 'SCR-032':
+      return <AdminMembers nav={nav} />
+    case 'SCR-033':
+      return <AnalyticsPage nav={nav} />
+    case 'SCR-034':
+      return <AdminOverview nav={nav} />
 
     default:
       return <Placeholder id={id} nav={nav} />
