@@ -1,139 +1,7 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useRef } from 'react'
 import type { Nav } from '../../types'
 import { JOBS, COLUMNS } from '../../data/mwData'
 import { Img } from '../../components/Img'
-
-// ============ FIGMA HERO (Music Works — Sample UI Top) ============
-export function Hero({ nav }: { nav: Nav }) {
-  const ref = useRef<HTMLDivElement>(null)
-  const [scale, setScale] = useState(1)
-  useEffect(() => {
-    const stage = ref.current
-    if (!stage) return
-    const update = () => setScale(stage.clientWidth / 1440)
-    update()
-    const ro = new ResizeObserver(update)
-    ro.observe(stage)
-    window.addEventListener('resize', update)
-    return () => {
-      ro.disconnect()
-      window.removeEventListener('resize', update)
-    }
-  }, [])
-
-  // Right feature panel — horizontal carousel slides
-  const slides = [
-    { img: 'assets/hero-concert.jpg', pos: '50% 38%', grain: true, co: 'ソニーミュージックエンタテイメント', role: 'A＆R ディレクター（新人アーティスト発掘）' },
-    { img: 'assets/hero-bg.jpg', pos: '50% 50%', grain: false, co: "rockin'on inc.", role: 'フェスプロデューサー（ROCK IN JAPAN FES.）' },
-    { img: 'assets/hero-column.jpg', pos: '50% 32%', grain: false, co: 'Grain Pictures', role: 'MV ディレクター（映像演出・編集）' },
-  ]
-
-  const [slide, setSlide] = useState(0)
-  const [paused, setPaused] = useState(false)
-  useEffect(() => {
-    if (paused) return
-    const t = setInterval(() => setSlide((s) => (s + 1) % slides.length), 5000)
-    return () => clearInterval(t)
-  }, [paused, slides.length])
-
-  // Custom cursor ring — follows the mouse across the hero
-  const [cur, setCur] = useState({ x: 720, y: 560, on: false })
-  const onHeroMove = (e: React.MouseEvent<HTMLElement>) => {
-    if (!ref.current) return
-    const r = ref.current.getBoundingClientRect()
-    setCur({ x: (e.clientX - r.left) / scale, y: (e.clientY - r.top) / scale, on: true })
-  }
-
-  return (
-    <div className="mwh-stage" ref={ref} style={{ height: 1024 * scale }}>
-    <section className="mwh" style={{ transform: `scale(${scale})` }} data-screen-label="HERO"
-      onMouseMove={onHeroMove} onMouseLeave={() => setCur((c) => ({ ...c, on: false }))}>
-      <div className="mwh-bg"></div>
-
-      {/* Right feature panel — horizontal carousel */}
-      <div className="mwh-panel" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
-        <div className="mwh-track" style={{ width: 600 * slides.length, transform: `translateX(${-slide * 600}px)` }}>
-          {slides.map((s, i) =>
-            <div className="mwh-cslide" key={i}>
-              <div className="photo" style={{ backgroundImage: `url(${s.img})`, backgroundPosition: s.pos }}></div>
-              {s.grain && <div className="grain"></div>}
-              <div className="colabel">
-                <div className="co">{s.co}</div>
-                <div className="role">{s.role}</div>
-              </div>
-            </div>
-            )}
-        </div>
-        <div className="shade"></div>
-        <div className="mwh-watermark"><span className="wm-big">Discovery</span><span className="wm-small">Presented by rockin' on</span></div>
-        <button className="mwh-carrow prev" aria-label="前のスライド" onClick={() => setSlide((s) => (s - 1 + slides.length) % slides.length)}>‹</button>
-        <button className="mwh-carrow next" aria-label="次のスライド" onClick={() => setSlide((s) => (s + 1) % slides.length)}>›</button>
-      </div>
-
-      {/* Decorative magatama */}
-      <svg className="mwh-union" width="250" height="372" viewBox="0 0 250 372" fill="rgba(136,136,136,0.2)">
-        <path d="M 125 0 C 194.036 0 250 55.964 250 125 C 250 128.077 249.887 131.129 249.668 134.15 C 249.028 157.618 243.172 209.895 207 258 C 129.656 360.859 28.5 372 28.5 372 C 91.318 331.216 115.123 305.001 129.5 250 L 129.578 249.916 C 128.059 249.971 126.533 250 125 250 C 55.964 250 0 194.036 0 125 C 0 55.964 55.964 0 125 0 Z" fillRule="nonzero" />
-      </svg>
-
-      {/* Header */}
-      <header className="mwh-header">
-        <div className="mwh-logo" onClick={() => nav('SCR-001')}><span className="lg-big">Discovery</span><span className="lg-small">Presented by rockin' on</span></div>
-        <div className="mwh-search">
-          <input placeholder="Search" />
-          <button className="go" aria-label="search">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5"><circle cx="11" cy="11" r="7" /><line x1="21" y1="21" x2="16.5" y2="16.5" /></svg>
-          </button>
-        </div>
-        <div className="right">
-          <div className="auth">
-            <button className="mwh-btn ghost" onClick={() => nav('SCR-007')} style={{ color: "rgb(255, 255, 255)", opacity: "1" }}>ログイン</button>
-            <button className="mwh-btn solid" onClick={() => nav('SCR-006')}>無料登録</button>
-          </div>
-          <button className="mwh-burger" aria-label="menu" data-comment-anchor="f1dd1e78a6-button-53-11"><span></span><span></span><span></span></button>
-        </div>
-      </header>
-
-      {/* Headline + lead */}
-      <h1 className="mwh-title">音楽を、仕事にする。</h1>
-      <p className="mwh-lead">{"rockin'onだから載せられる求人がある\n自分らしく働ける企業とキャリアを本気で繋げるプラットフォーム\n"}それが <span className="lead-brand">Discovery</span> <span className="lead-brand-sm">Presented by rockin' on</span> です</p>
-
-      {/* Custom cursor ring — follows the mouse pointer across the hero */}
-      <div className="mwh-viewmore" data-comment-anchor="73de4f555c-div-62-7"
-        style={{ left: cur.x - 60, top: cur.y - 60, opacity: cur.on ? 1 : 0 }}>
-        <span className="t">View More</span>
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2"><line x1="12" y1="5" x2="12" y2="19" /><polyline points="6 13 12 19 18 13" /></svg>
-      </div>
-
-      {/* Red CTA */}
-      <button className="mwh-cta" onClick={() => nav('SCR-002')}>
-        <svg width="40" height="40" viewBox="0 0 32 32" fill="#fff"><path d="M 0 32 L 0 5.4 L 8 5.4 L 8 18 L 26.1 0 L 32 5.9 L 13.7 24.1 L 26.7 24.1 L 26.7 32 L 0 32 Z" transform="rotate(180 16 16)" /></svg>
-        <span className="t">求人を探す</span>
-      </button>
-
-      {/* Column card */}
-      <div className="mwh-column" onClick={() => nav('SCR-014')}>
-        <div className="thumb"><span className="tag">Column</span></div>
-        <div className="body">
-          <div className="date">2026.01.01</div>
-          <h3>エンタメ業界への就職を目指す方へ「採用担当者にききました!」〜(株)ノア〜</h3>
-          <p>エンターテイメント業界への就職・転職を目指す方々へ向けた特別連載、「採用担当者にききました!」。＃10は、株式会社ノアです。</p>
-        </div>
-      </div>
-
-      {/* Carousel status bar */}
-      <div className="mwh-progress">
-        <i className="w" data-comment-anchor="a25f0c4abb-i-85-9"></i>
-        {slides.map((_, i) =>
-          <i key={i} className={i === slide ? 'r' : 's'} onClick={() => setSlide(i)}></i>
-          )}
-      </div>
-
-      {/* Vertical tab */}
-      <div className="mwh-tab" onClick={() => nav('SCR-010')} style={{ borderRadius: "7px 0px 0px 8px" }}><span>掲載企業の方はこちら</span></div>
-    </section>
-    </div>)
-
-}
 
 // ============ TOP PAGE (Discovery editorial redesign) ============
 const DP_ARROW = <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><line x1="4" y1="12" x2="20" y2="12" /><polyline points="14 6 20 12 14 18" /></svg>
@@ -180,7 +48,7 @@ function PickupCard({ item, nav }: { item: PickupItem; nav: Nav }) {
         <div className="dp-pkshade"></div>
       </div>
       <div className="dp-pkbody">
-        <span className="dp-new" style={{ backgroundColor: "rgb(255, 255, 255)", color: "rgb(38, 38, 38)", fontWeight: "700" }}>NEW</span>
+        <span className="dp-new on-photo">NEW</span>
         <div className="dp-pkco">{item.co}</div>
         <h3 className="dp-pktitle">{item.title}</h3>
         <div className="dp-meta">{item.emp}<i></i>{item.loc}</div>
@@ -192,10 +60,10 @@ function PickupCard({ item, nav }: { item: PickupItem; nav: Nav }) {
 
 function MiniJob({ item, nav }: { item: Omit<PickupItem, 'id'>; nav: Nav }) {
   return (
-    <article className="dp-mj" onClick={() => nav('SCR-002')} style={{ gap: "16px" }}>
+    <article className="dp-mj" onClick={() => nav('SCR-002')}>
       <div className="dp-mjthumb">
         <Img className="dp-img" src={item.img} alt={item.title} seed={item.img} />
-        <span className="dp-new sm" style={{ backgroundColor: "rgb(207, 61, 21)" }}>NEW</span>
+        <span className="dp-new sm">NEW</span>
       </div>
       <div className="dp-mjbody">
         <div className="dp-mjco">{item.co}</div>
@@ -263,12 +131,12 @@ export function TopPage({ nav }: { nav: Nav }) {
       {/* ===== PICK UP carousel ===== */}
       <section className="dp-pickup">
         <div className="dp-pk-rail">
-          <div className="dp-pk-vert" style={{ fontFamily: "\"Barlow Condensed\"", fontSize: "64px", fontWeight: "700", letterSpacing: "0.6px" }}>PICK UP</div>
+          <div className="dp-pk-vert">PICK UP</div>
           <div className="dp-pk-lead">
             <p>いま、音楽業界で<br />挑戦する人たちへ。</p>
             <p className="sub">注目の求人を<br />ピックアップ。</p>
           </div>
-          <div className="dp-pk-nav" data-comment-anchor="a25f0c4abb-i-85-9">
+          <div className="dp-pk-nav">
             <div className="dp-pk-arrows">
               <button aria-label="前へ" onClick={() => scrollPk(-1)}><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><line x1="20" y1="12" x2="4" y2="12" /><polyline points="10 6 4 12 10 18" /></svg></button>
               <button aria-label="次へ" onClick={() => scrollPk(1)}><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><line x1="4" y1="12" x2="20" y2="12" /><polyline points="14 6 20 12 14 18" /></svg></button>
@@ -276,9 +144,9 @@ export function TopPage({ nav }: { nav: Nav }) {
             <div className="dp-pk-count"><b>{pkIndex + 1}</b><i></i><span>{PICKUP.length}</span></div>
           </div>
         </div>
-        <div className="dp-pk-track" ref={trackRef} style={{ gap: "1px" }}>
+        <div className="dp-pk-track" ref={trackRef}>
           {PICKUP.map((item) => <PickupCard key={item.id} item={item} nav={nav} />)}
-          <button className="dp-viewall" data-comment-anchor="73de4f555c-div-62-7" onClick={() => nav('SCR-002')}>
+          <button className="dp-viewall" onClick={() => nav('SCR-002')}>
             <span className="dp-display">VIEW<br />ALL</span>
             {DP_ARROW}
           </button>
@@ -287,8 +155,8 @@ export function TopPage({ nav }: { nav: Nav }) {
 
       {/* ===== NEW JOBS + SEARCH ===== */}
       <section className="dp-newjobs">
-        <div className="dp-sec-head" style={{ justifyContent: "space-between" }}>
-          <div className="dp-sec-title"><span className="dp-display" style={{ fontFamily: "\"Barlow Condensed\"", fontWeight: "600", letterSpacing: "0.7px", fontSize: "48px" }}>NEW JOBS</span><span className="dp-sec-sub">新着求人</span></div>
+        <div className="dp-sec-head">
+          <div className="dp-sec-title"><span className="dp-display">NEW JOBS</span><span className="dp-sec-sub">新着求人</span></div>
           <button className="dp-link" onClick={() => nav('SCR-002')}>すべての新着求人を見る {DP_ARROW}</button>
         </div>
         <div className="dp-nj-body">
@@ -303,7 +171,7 @@ export function TopPage({ nav }: { nav: Nav }) {
 
       {/* ===== FEATURE / COLUMN ===== */}
       <section className="dp-feature">
-        <div className="dp-ft-label"><span className="dp-display" style={{ fontSize: "48px", letterSpacing: "0.7px" }}>FEATURE</span><span className="dp-sec-sub">特集</span></div>
+        <div className="dp-ft-label"><span className="dp-display">FEATURE</span><span className="dp-sec-sub">特集</span></div>
         <div className="dp-ft-banner" onClick={() => nav('SCR-014')}>
           <Img className="dp-img" src="assets/us/c88d6151cec05ff3.jpg" alt="音楽フェスのつくり方" seed="col-hero" />
           <div className="dp-ft-overlay">
@@ -334,8 +202,8 @@ export function TopPage({ nav }: { nav: Nav }) {
 
       <footer className="site-footer">
         <div>
-          <div className="f-logo">Discovery <span className="by" style={{ fontFamily: "\"Hiragino Sans\"", height: "11px", lineHeight: "1.5", padding: "0px", margin: "12px 0px 0px" }}>presented by rockin'on</span></div>
-          <p style={{ marginTop: 10, color: 'var(--mw-gray)', fontSize: 11, maxWidth: 280, fontFamily: 'var(--ff-jp)' }}>
+          <div className="f-logo">Discovery <span className="by">presented by rockin'on</span></div>
+          <p className="f-about">
             音楽を仕事にする人のためのキャリアプラットフォーム。
             rockin'on inc. が運営しています。
           </p>
