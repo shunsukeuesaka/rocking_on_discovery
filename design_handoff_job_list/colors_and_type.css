@@ -1,0 +1,303 @@
+/* ============================================================
+   Uesaka Design System — Core Tokens
+   Source: guideline/style-guide.md v2.0 + guideline/DESIGN.md v1.0
+   All webfonts are served locally from /fonts (no CDN dependency).
+   ============================================================ */
+
+/* ---------- Barlow (brand primary EN heading) 100–900 + italics ---------- */
+@font-face { font-family: "Barlow"; src: url("fonts/Barlow/Barlow-Thin.ttf")            format("truetype"); font-weight: 100; font-style: normal; font-display: swap; }
+@font-face { font-family: "Barlow"; src: url("fonts/Barlow/Barlow-ThinItalic.ttf")      format("truetype"); font-weight: 100; font-style: italic; font-display: swap; }
+@font-face { font-family: "Barlow"; src: url("fonts/Barlow/Barlow-ExtraLight.ttf")      format("truetype"); font-weight: 200; font-style: normal; font-display: swap; }
+@font-face { font-family: "Barlow"; src: url("fonts/Barlow/Barlow-ExtraLightItalic.ttf")format("truetype"); font-weight: 200; font-style: italic; font-display: swap; }
+@font-face { font-family: "Barlow"; src: url("fonts/Barlow/Barlow-Light.ttf")           format("truetype"); font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: "Barlow"; src: url("fonts/Barlow/Barlow-LightItalic.ttf")     format("truetype"); font-weight: 300; font-style: italic; font-display: swap; }
+@font-face { font-family: "Barlow"; src: url("fonts/Barlow/Barlow-Regular.ttf")         format("truetype"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Barlow"; src: url("fonts/Barlow/Barlow-Italic.ttf")          format("truetype"); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "Barlow"; src: url("fonts/Barlow/Barlow-Medium.ttf")          format("truetype"); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "Barlow"; src: url("fonts/Barlow/Barlow-MediumItalic.ttf")    format("truetype"); font-weight: 500; font-style: italic; font-display: swap; }
+@font-face { font-family: "Barlow"; src: url("fonts/Barlow/Barlow-SemiBold.ttf")        format("truetype"); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: "Barlow"; src: url("fonts/Barlow/Barlow-SemiBoldItalic.ttf")  format("truetype"); font-weight: 600; font-style: italic; font-display: swap; }
+@font-face { font-family: "Barlow"; src: url("fonts/Barlow/Barlow-Bold.ttf")            format("truetype"); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Barlow"; src: url("fonts/Barlow/Barlow-BoldItalic.ttf")      format("truetype"); font-weight: 700; font-style: italic; font-display: swap; }
+@font-face { font-family: "Barlow"; src: url("fonts/Barlow/Barlow-ExtraBold.ttf")       format("truetype"); font-weight: 800; font-style: normal; font-display: swap; }
+@font-face { font-family: "Barlow"; src: url("fonts/Barlow/Barlow-ExtraBoldItalic.ttf") format("truetype"); font-weight: 800; font-style: italic; font-display: swap; }
+@font-face { font-family: "Barlow"; src: url("fonts/Barlow/Barlow-Black.ttf")           format("truetype"); font-weight: 900; font-style: normal; font-display: swap; }
+@font-face { font-family: "Barlow"; src: url("fonts/Barlow/Barlow-BlackItalic.ttf")     format("truetype"); font-weight: 900; font-style: italic; font-display: swap; }
+
+/* ---------- Barlow Condensed — condensed fallback / alt heading (partial set) ---------- */
+@font-face { font-family: "Barlow Condensed"; src: url("fonts/BarlowCondensed/BarlowCondensed-Regular.ttf")   format("truetype"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Barlow Condensed"; src: url("fonts/BarlowCondensed/BarlowCondensed-Italic.ttf")    format("truetype"); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "Barlow Condensed"; src: url("fonts/BarlowCondensed/BarlowCondensed-Medium.ttf")    format("truetype"); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "Barlow Condensed"; src: url("fonts/BarlowCondensed/BarlowCondensed-SemiBold.ttf")  format("truetype"); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: "Barlow Condensed"; src: url("fonts/BarlowCondensed/BarlowCondensed-Bold.ttf")      format("truetype"); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Barlow Condensed"; src: url("fonts/BarlowCondensed/BarlowCondensed-BoldItalic.ttf")format("truetype"); font-weight: 700; font-style: italic; font-display: swap; }
+@font-face { font-family: "Barlow Condensed"; src: url("fonts/BarlowCondensed/BarlowCondensed-Black.ttf")     format("truetype"); font-weight: 900; font-style: normal; font-display: swap; }
+
+/* ---------- Barlow Semi Condensed — for dense tables / mid-density heads (partial) ---------- */
+@font-face { font-family: "Barlow Semi Condensed"; src: url("fonts/BarlowSemiCondensed/BarlowSemiCondensed-Regular.ttf") format("truetype"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Barlow Semi Condensed"; src: url("fonts/BarlowSemiCondensed/BarlowSemiCondensed-Medium.ttf")  format("truetype"); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "Barlow Semi Condensed"; src: url("fonts/BarlowSemiCondensed/BarlowSemiCondensed-SemiBold.ttf")format("truetype"); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: "Barlow Semi Condensed"; src: url("fonts/BarlowSemiCondensed/BarlowSemiCondensed-Bold.ttf")    format("truetype"); font-weight: 700; font-style: normal; font-display: swap; }
+
+/* ---------- Noto Sans JP (JP body fallback, variable) 100–900 ---------- */
+@font-face {
+  font-family: "Noto Sans JP";
+  src: url("fonts/NotoSansJP/NotoSansJP-VariableFont_wght.ttf") format("truetype-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---------- Roboto Mono (metadata / code) — variable axis ---------- */
+@font-face {
+  font-family: "Roboto Mono";
+  src: url("fonts/RobotoMono/RobotoMono-VariableFont_wght.ttf") format("truetype-variations");
+  font-weight: 100 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Roboto Mono";
+  src: url("fonts/RobotoMono/RobotoMono-Italic-VariableFont_wght.ttf") format("truetype-variations");
+  font-weight: 100 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+:root {
+  /* ============================================================
+     Typography — families
+     ============================================================ */
+  /* Barlow = brand primary. Barlow Condensed / Semi Condensed available as siblings. */
+  --font-en-heading:        "Barlow", "Barlow Condensed", "Oswald", sans-serif;
+  --font-en-condensed:      "Barlow Condensed", "Barlow", "Oswald", sans-serif;
+  --font-en-semi-condensed: "Barlow Semi Condensed", "Barlow", "Oswald", sans-serif;
+  --font-jp-body:           "Hiragino Sans", "Noto Sans JP", sans-serif;
+  --font-mono:              "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* --- Type scale (base 16px) --- */
+  --text-10xl: 10rem;     /* 160px */
+  --text-9xl:  7.5rem;    /* 120px */
+  --text-8xl:  5rem;      /* 80px  */
+  --text-7xl:  4rem;      /* 64px  */
+  --text-6xl:  3rem;      /* 48px  */
+  --text-5xl:  2.5rem;    /* 40px  */
+  --text-4xl:  2.25rem;   /* 36px  */
+  --text-3xl:  2rem;      /* 32px  */
+  --text-2xl:  1.5rem;    /* 24px  */
+  --text-xl:   1.25rem;   /* 20px  */
+  --text-lg:   1.125rem;  /* 18px  */
+  --text-base: 1rem;      /* 16px (DEFAULT) */
+  --text-sm:   0.875rem;  /* 14px  */
+  --text-xs:   0.75rem;   /* 12px  */
+  --text-2xs:  0.625rem;  /* 10px  */
+
+  --weight-regular: 400;
+  --weight-medium:  500;
+  --weight-bold:    700;
+
+  --leading-default: 1.5;
+  --leading-heading: 1.15;
+  --leading-body:    1.75;
+  --leading-label:   1.45;
+  --leading-caption: 1.5;
+
+  --tracking-heading: 0.03em;
+  --tracking-body:    0;
+  --tracking-label:   0.02em;
+
+  /* ============================================================
+     Colors — base (warm off-white + charcoal)
+     ============================================================ */
+  --color-bg:             #FAF9F7;
+  --color-surface:        #F2F0ED;
+  --color-border:         #E0DDD9;
+  --color-text-primary:   #1C1C1A;
+  --color-text-secondary: #5C5B57;
+  --color-text-tertiary:  #9C9B96;
+
+  /* --- Accent (Red) - use 1–2 per viewport MAX --- */
+  --color-red-900: #5C1010;
+  --color-red-800: #7A1A1A;
+  --color-red-700: #9C2020;
+  --color-red-600: #BE2A2A;
+  --color-red-500: #D93030; /* PRIMARY */
+  --color-red-400: #E05050; /* hover   */
+  --color-red-300: #E87070;
+  --color-red-200: #F0A0A0;
+  --color-red-100: #F8D0D0; /* muted bg */
+  --color-red-50:  #FDF0F0;
+
+  --color-accent:       #D93030;
+  --color-accent-hover: #E05050;
+  --color-accent-muted: #F8D0D0;
+
+  /* --- Sub colors (pick ONE per project) --- */
+  --color-yellow-500: #D4B800;
+  --color-yellow-300: #F0D040;
+  --color-yellow-100: #FBF3C0;
+
+  --color-orange-500: #C84020;
+  --color-orange-300: #E07050;
+  --color-orange-100: #F9D8CC;
+
+  --color-purple-500: #7020C0;
+  --color-purple-300: #A060D8;
+  --color-purple-100: #E8D0F8;
+
+  --color-cyan-500: #20A898;
+  --color-cyan-300: #50C8BC;
+  --color-cyan-100: #C8F0EC;
+
+  /* --- Gray scale (warm-tinted) --- */
+  --color-gray-900: #141412;
+  --color-gray-800: #282826;
+  --color-gray-700: #3C3C3A;
+  --color-gray-600: #545452;
+  --color-gray-500: #706F6C;
+  --color-gray-400: #908F8C;
+  --color-gray-300: #B0AFA8;
+  --color-gray-200: #CCC9C4;
+  --color-gray-100: #E4E2DC;
+  --color-gray-50:  #F4F2EE;
+
+  /* --- Semantic --- */
+  --color-error:   #D93030;
+  --color-warning: #D4B800;
+  --color-success: #2A8C5C;
+  --color-info:    #20A898;
+
+  /* ============================================================
+     Spacing — 8px grid
+     ============================================================ */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;  /* component standard */
+  --space-5:  24px;
+  --space-6:  32px;
+  --space-8:  48px;  /* section */
+  --space-10: 64px;  /* page */
+  --space-12: 80px;
+  --space-16: 96px;  /* hero */
+
+  /* ============================================================
+     Shape — sharp radii only. NO shadows. NO pill.
+     ============================================================ */
+  --radius-none: 0px;
+  --radius-sm:   2px;
+  --radius-md:   4px; /* DEFAULT */
+  --radius-lg:   8px;
+  --radius-full: 9999px; /* AVOID except avatar/icon-button */
+
+  /* ============================================================
+     Motion
+     ============================================================ */
+  --transition-base:     200ms ease-out;
+  --transition-hover:    150ms ease-out;
+  --transition-page:     250ms ease-in-out;
+
+  /* ============================================================
+     Layout
+     ============================================================ */
+  --max-width: 960px;
+  --nav-height: 64px;
+}
+
+/* ============================================================
+   SEMANTIC TYPE CLASSES — pre-composed styles for ready use
+   ============================================================ */
+
+.u-display {
+  font-family: var(--font-en-heading);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-8xl);
+  line-height: var(--leading-heading);
+  letter-spacing: var(--tracking-heading);
+  color: var(--color-text-primary);
+}
+
+.u-h1 {
+  font-family: var(--font-en-heading);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-5xl);
+  line-height: var(--leading-heading);
+  letter-spacing: var(--tracking-heading);
+  color: var(--color-text-primary);
+}
+
+.u-h2 {
+  font-family: var(--font-en-heading);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-4xl);
+  line-height: var(--leading-heading);
+  letter-spacing: var(--tracking-heading);
+  color: var(--color-text-primary);
+}
+
+.u-h3 {
+  font-family: var(--font-en-heading);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-2xl);
+  line-height: var(--leading-heading);
+  letter-spacing: var(--tracking-heading);
+  color: var(--color-text-primary);
+}
+
+.u-lead {
+  font-family: var(--font-jp-body);
+  font-weight: var(--weight-regular);
+  font-size: var(--text-xl);
+  line-height: var(--leading-body);
+  color: var(--color-text-secondary);
+}
+
+.u-body {
+  font-family: var(--font-jp-body);
+  font-weight: var(--weight-regular);
+  font-size: var(--text-base);
+  line-height: var(--leading-body);
+  color: var(--color-text-primary);
+}
+
+.u-label {
+  font-family: var(--font-en-heading);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-sm);
+  line-height: var(--leading-label);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-tertiary);
+}
+
+.u-caption {
+  font-family: var(--font-jp-body);
+  font-weight: var(--weight-regular);
+  font-size: var(--text-xs);
+  line-height: var(--leading-caption);
+  color: var(--color-text-tertiary);
+}
+
+.u-mono {
+  font-family: var(--font-mono);
+  font-weight: var(--weight-regular);
+}
+
+/* ============================================================
+   BASE RESET (optional — import when building an artifact)
+   ============================================================ */
+.u-reset *, .u-reset *::before, .u-reset *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.u-reset {
+  background: var(--color-bg);
+  color: var(--color-text-primary);
+  font-family: var(--font-jp-body);
+  font-size: var(--text-base);
+  line-height: var(--leading-default);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
