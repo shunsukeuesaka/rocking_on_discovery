@@ -1,11 +1,11 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 
-// Local webfonts (no CDN) — Uesaka DS: Barlow (EN heading), Noto Sans JP
+// Local webfonts (no CDN) — Uesaka DS: Barlow Condensed (EN heading), Noto Sans JP
 // (JP body fallback for non-Mac), Roboto Mono.
-import '@fontsource/barlow/400.css'
-import '@fontsource/barlow/500.css'
-import '@fontsource/barlow/700.css'
+import '@fontsource/barlow-condensed/400.css'
+import '@fontsource/barlow-condensed/500.css'
+import '@fontsource/barlow-condensed/700.css'
 import '@fontsource/noto-sans-jp/400.css'
 import '@fontsource/noto-sans-jp/500.css'
 import '@fontsource/noto-sans-jp/700.css'

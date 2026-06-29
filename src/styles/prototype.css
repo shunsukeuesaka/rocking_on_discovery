@@ -20,8 +20,8 @@
   /* ============================================================
      Typography — families
      ============================================================ */
-  /* Barlow = brand primary. Barlow Condensed / Semi Condensed available as siblings. */
-  --font-en-heading:        "Barlow", "Barlow Condensed", "Oswald", sans-serif;
+  /* Barlow Condensed = EN heading primary. Barlow / Semi Condensed available as siblings. */
+  --font-en-heading:        "Barlow Condensed", "Barlow", "Oswald", sans-serif;
   --font-en-condensed:      "Barlow Condensed", "Barlow", "Oswald", sans-serif;
   --font-en-semi-condensed: "Barlow Semi Condensed", "Barlow", "Oswald", sans-serif;
   --font-jp-body:           "Hiragino Sans", "Noto Sans JP", sans-serif;
@@ -275,8 +275,8 @@
   --ff-mono:       var(--font-mono);
   /* メタデータ等で Roboto Mono になっていた箇所を Hiragino Sans に統一 */
   --font-mono:     var(--font-jp-body);
-  /* 見出し（EN表示見出し）を Bebas Neue に統一 */
-  --font-en-heading: "Bebas Neue", "Barlow", "Oswald", sans-serif;
+  /* 見出し（EN表示見出し）を Barlow Condensed に統一 */
+  --font-en-heading: "Barlow Condensed", "Barlow", "Oswald", sans-serif;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -713,7 +713,7 @@ body { padding-top: 44px; }
   text-transform: lowercase; color: var(--color-text-tertiary); font-weight: var(--weight-regular);
 }
 .f-logo .r { color: var(--color-accent); }
-.ft-title { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-text-tertiary); margin-bottom: 16px; }
+.ft-title { font-family: var(--font-en-heading); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-text-tertiary); margin-bottom: 16px; }
 .site-footer ul { display: flex; flex-direction: column; gap: 10px; }
 .site-footer ul li { font-family: var(--font-jp-body); font-size: var(--text-xs); color: var(--color-text-primary); cursor: pointer; }
 .site-footer ul li:hover { color: var(--color-accent); }
@@ -1325,8 +1325,8 @@ span[style*="rgba(255, 255, 255, 0.12)"] { background: var(--color-gray-200) !im
   --dp-mut: #8A857E;
 }
 .dp-display {
-  font-family: 'Bebas Neue', var(--font-en-heading);
-  font-weight: 400; letter-spacing: 0.02em; line-height: 0.9; color: var(--dp-ink);
+  font-family: var(--font-en-heading);
+  font-weight: 700; letter-spacing: 0.02em; line-height: 0.9; color: var(--dp-ink);
 }
 .dp-img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .dp { background: #FFFFFF; }
