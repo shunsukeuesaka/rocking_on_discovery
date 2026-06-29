@@ -1142,7 +1142,7 @@ span[style*="rgba(255, 255, 255, 0.12)"] { background: var(--color-gray-200) !im
 }
 .mwh-bg {
   position: absolute; inset: 0; z-index: 0;
-  background: url(assets/hero-bg.jpg) 82% 100% / cover no-repeat;
+  background: url(https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=1600&q=80) 82% 100% / cover no-repeat;
   mix-blend-mode: hard-light;
 }
 .mwh-bg::after { /* deepen the left side for text legibility */
@@ -1176,7 +1176,7 @@ span[style*="rgba(255, 255, 255, 0.12)"] { background: var(--color-gray-200) !im
 .mwh-carrow:hover { background: var(--mwh-red); border-color: var(--mwh-red); }
 .mwh-panel .grain {
   position: absolute; inset: 0;
-  background: url(assets/hero-person.png) center / cover no-repeat;
+  background: url(https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1200&q=80) center / cover no-repeat;
   mix-blend-mode: screen; opacity: 0.55;
 }
 .mwh-panel .shade {
@@ -1280,7 +1280,7 @@ span[style*="rgba(255, 255, 255, 0.12)"] { background: var(--color-gray-200) !im
 .mwh-column { position: absolute; left: 80px; top: 781px; z-index: 4; width: 680px; display: flex; gap: 48px; align-items: center; cursor: pointer; }
 .mwh-column .thumb {
   position: relative; width: 240px; height: 160px; border-radius: 8px; overflow: hidden; flex: none;
-  background: #333 url(assets/hero-column.jpg) center / cover no-repeat;
+  background: #333 url(https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1200&q=80) center / cover no-repeat;
 }
 .mwh-column .thumb .tag {
   position: absolute; left: 12px; top: 12px; background: #262626; border-radius: 100px;
