@@ -18,25 +18,25 @@ interface PickupItem {
 }
 
 const PICKUP: PickupItem[] = [
-  { id: 'J-2401', co: '株式会社ロッキン・ライブ', title: 'ライブ制作ディレクター', emp: '正社員', loc: '東京都 渋谷区', tags: ['ライブ制作', 'コンサート', '進行管理'], img: 'assets/us/62bc5486a419ef3a.jpg', ph: 'ライブ照明' },
-  { id: 'J-2402', co: '株式会社サウンド・クリエイト', title: 'レコーディングエンジニア', emp: '契約社員', loc: '東京都 渋谷区', tags: ['レコーディング', 'PA/音響', 'ミックス'], img: 'assets/us/a4317f9f7d240dc2.jpg', ph: 'スタジオ卓' },
-  { id: 'J-2403', co: 'ロッキン・レコード株式会社', title: 'A&R（邦楽担当）', emp: '正社員', loc: '東京都 渋谷区', tags: ['A&R', 'アーティスト発掘', '契約交渉'], img: 'assets/us/7fefe37856337457.jpg', ph: 'レコード' },
-  { id: 'J-2404', co: 'ロッキン・フェスティバル株式会社', title: 'フェス運営スタッフ', emp: '契約社員', loc: '千葉県 千葉市', tags: ['フェス運営', '会場運営', 'イベント'], img: 'assets/us/d9ec9e2bda7be54d.jpg', ph: 'フェス会場' },
-  { id: 'J-2405', co: '株式会社ビジュアル・メディア', title: 'ライブ映像ディレクター', emp: '正社員', loc: '東京都 渋谷区', tags: ['映像制作', 'ライブ配信', 'ディレクション'], img: 'assets/us/1b733ce7246613b8.jpg', ph: 'カメラ' },
-  { id: 'J-2406', co: '株式会社ステージ・ワークス', title: '舞台監督', emp: '正社員', loc: '神奈川県 川崎市', tags: ['舞台監督', 'ステージ', '進行管理'], img: 'assets/us/76c62f5d21ffad6c.jpg', ph: '機材' },
-  { id: 'J-2407', co: '株式会社ライブ・テック', title: '照明デザイナー', emp: '契約社員', loc: '大阪府 大阪市', tags: ['照明', 'デザイン', 'ライブ'], img: 'assets/us/74ea8c29e544340c.jpg', ph: 'ステージ照明' },
-  { id: 'J-2408', co: '株式会社アーティスト・マネジメント', title: 'アーティストマネージャー', emp: '正社員', loc: '東京都 渋谷区', tags: ['マネジメント', 'スケジュール調整', '契約管理'], img: 'assets/us/d13b2321fd2a55d9.jpg', ph: 'ライブ' },
-  { id: 'J-2409', co: '株式会社ロッキン・プロモーション', title: '音楽広報・PR', emp: '正社員', loc: '東京都 渋谷区', tags: ['広報', 'PR', 'SNS運用'], img: 'assets/us/6bde306c92b774b4.jpg', ph: 'マイク' },
+  { id: 'J-2401', co: '株式会社ロッキン・ライブ', title: 'ライブ制作ディレクター', emp: '正社員', loc: '東京都 渋谷区', tags: ['ライブ制作', 'コンサート', '進行管理'], img: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=800&q=80', ph: 'ライブ照明' },
+  { id: 'J-2402', co: '株式会社サウンド・クリエイト', title: 'レコーディングエンジニア', emp: '契約社員', loc: '東京都 渋谷区', tags: ['レコーディング', 'PA/音響', 'ミックス'], img: 'https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?auto=format&fit=crop&w=800&q=80', ph: 'スタジオ卓' },
+  { id: 'J-2403', co: 'ロッキン・レコード株式会社', title: 'A&R（邦楽担当）', emp: '正社員', loc: '東京都 渋谷区', tags: ['A&R', 'アーティスト発掘', '契約交渉'], img: 'https://images.unsplash.com/photo-1598387993441-a364f854c3e1?auto=format&fit=crop&w=800&q=80', ph: 'レコード' },
+  { id: 'J-2404', co: 'ロッキン・フェスティバル株式会社', title: 'フェス運営スタッフ', emp: '契約社員', loc: '千葉県 千葉市', tags: ['フェス運営', '会場運営', 'イベント'], img: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=800&q=80', ph: 'フェス会場' },
+  { id: 'J-2405', co: '株式会社ビジュアル・メディア', title: 'ライブ映像ディレクター', emp: '正社員', loc: '東京都 渋谷区', tags: ['映像制作', 'ライブ配信', 'ディレクション'], img: 'https://images.unsplash.com/photo-1564186763535-ebb21ef5277f?auto=format&fit=crop&w=800&q=80', ph: 'カメラ' },
+  { id: 'J-2406', co: '株式会社ステージ・ワークス', title: '舞台監督', emp: '正社員', loc: '神奈川県 川崎市', tags: ['舞台監督', 'ステージ', '進行管理'], img: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=800&q=80', ph: '機材' },
+  { id: 'J-2407', co: '株式会社ライブ・テック', title: '照明デザイナー', emp: '契約社員', loc: '大阪府 大阪市', tags: ['照明', 'デザイン', 'ライブ'], img: 'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=800&q=80', ph: 'ステージ照明' },
+  { id: 'J-2408', co: '株式会社アーティスト・マネジメント', title: 'アーティストマネージャー', emp: '正社員', loc: '東京都 渋谷区', tags: ['マネジメント', 'スケジュール調整', '契約管理'], img: 'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?auto=format&fit=crop&w=800&q=80', ph: 'ライブ' },
+  { id: 'J-2409', co: '株式会社ロッキン・プロモーション', title: '音楽広報・PR', emp: '正社員', loc: '東京都 渋谷区', tags: ['広報', 'PR', 'SNS運用'], img: 'https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?auto=format&fit=crop&w=800&q=80', ph: 'マイク' },
 ]
 
 
 const NEWJOBS: Omit<PickupItem, 'id'>[] = [
-  { co: '株式会社ロッキン・プロモーション', title: 'レーベル宣伝・プロモーター', emp: '正社員', loc: '東京都 渋谷区', tags: ['宣伝', 'プロモーション', 'SNS運用'], img: 'assets/us/6bde306c92b774b4.jpg', ph: 'マイク' },
-  { co: '株式会社ライブ・テック', title: '照明オペレーター', emp: '契約社員', loc: '大阪府 大阪市', tags: ['照明', 'ライブ', 'オペレーション'], img: 'assets/us/74ea8c29e544340c.jpg', ph: 'ステージ照明' },
-  { co: '株式会社ステージ・ワークス', title: 'ステージ制作スタッフ', emp: 'アルバイト・パート', loc: '神奈川県 川崎市', tags: ['制作', 'ステージ', '設営'], img: 'assets/us/76c62f5d21ffad6c.jpg', ph: '機材' },
-  { co: '株式会社アーティスト・マネジメント', title: 'アーティストマネージャー', emp: '正社員', loc: '東京都 渋谷区', tags: ['マネジメント', 'スケジュール調整', '契約管理'], img: 'assets/us/d13b2321fd2a55d9.jpg', ph: 'ライブ' },
-  { co: '株式会社サウンド・クリエイト', title: '音響システムエンジニア', emp: '正社員', loc: '東京都 渋谷区', tags: ['音響', 'システム設計', '施工管理'], img: 'assets/us/d9ec9e2bda7be54d.jpg', ph: '音響卓' },
-  { co: '株式会社ビジュアル・メディア', title: 'ライブ映像ディレクター', emp: '契約社員', loc: '東京都 渋谷区', tags: ['映像制作', 'ライブ配信', 'ディレクション'], img: 'assets/us/1b733ce7246613b8.jpg', ph: 'カメラ' },
+  { co: '株式会社ロッキン・プロモーション', title: 'レーベル宣伝・プロモーター', emp: '正社員', loc: '東京都 渋谷区', tags: ['宣伝', 'プロモーション', 'SNS運用'], img: 'https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?auto=format&fit=crop&w=800&q=80', ph: 'マイク' },
+  { co: '株式会社ライブ・テック', title: '照明オペレーター', emp: '契約社員', loc: '大阪府 大阪市', tags: ['照明', 'ライブ', 'オペレーション'], img: 'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=800&q=80', ph: 'ステージ照明' },
+  { co: '株式会社ステージ・ワークス', title: 'ステージ制作スタッフ', emp: 'アルバイト・パート', loc: '神奈川県 川崎市', tags: ['制作', 'ステージ', '設営'], img: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=800&q=80', ph: '機材' },
+  { co: '株式会社アーティスト・マネジメント', title: 'アーティストマネージャー', emp: '正社員', loc: '東京都 渋谷区', tags: ['マネジメント', 'スケジュール調整', '契約管理'], img: 'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?auto=format&fit=crop&w=800&q=80', ph: 'ライブ' },
+  { co: '株式会社サウンド・クリエイト', title: '音響システムエンジニア', emp: '正社員', loc: '東京都 渋谷区', tags: ['音響', 'システム設計', '施工管理'], img: 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=800&q=80', ph: '音響卓' },
+  { co: '株式会社ビジュアル・メディア', title: 'ライブ映像ディレクター', emp: '契約社員', loc: '東京都 渋谷区', tags: ['映像制作', 'ライブ配信', 'ディレクション'], img: 'https://images.unsplash.com/photo-1564186763535-ebb21ef5277f?auto=format&fit=crop&w=800&q=80', ph: 'カメラ' },
 ]
 
 
@@ -173,7 +173,7 @@ export function TopPage({ nav }: { nav: Nav }) {
       <section className="dp-feature">
         <div className="dp-ft-label"><span className="dp-display">FEATURE</span><span className="dp-sec-sub">特集</span></div>
         <div className="dp-ft-banner" onClick={() => nav('SCR-014')}>
-          <Img className="dp-img" src="assets/us/c88d6151cec05ff3.jpg" alt="音楽フェスのつくり方" seed="col-hero" />
+          <Img className="dp-img" src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1200&q=80" alt="音楽フェスのつくり方" seed="col-hero" />
           <div className="dp-ft-overlay">
             <div className="dp-ft-eyebrow">SPECIAL FEATURE</div>
             <h3>音楽フェスのつくり方</h3>
@@ -189,7 +189,7 @@ export function TopPage({ nav }: { nav: Nav }) {
           <ul className="dp-col-list">
             {data.columns.map((c, i) =>
             <li key={i} onClick={() => nav('SCR-014')}>
-                <div className="dp-col-thumb"><Img className="dp-img" src={['assets/us/377f909c5a5ca4f3.jpg', 'assets/us/d732648dc45d9cd3.jpg', 'assets/us/a19e94e73191a826.jpg'][i % 3]} alt="" seed={'col' + i} /></div>
+                <div className="dp-col-thumb"><Img className="dp-img" src={['https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1501612780327-45045538702b?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1493676304819-0d7a8d026dcf?auto=format&fit=crop&w=800&q=80'][i % 3]} alt="" seed={'col' + i} /></div>
                 <div className="dp-col-text">
                   <span className="d">{c.date}</span>
                   <span className="t">{c.title}</span>
