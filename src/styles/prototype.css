@@ -1221,7 +1221,7 @@ span[style*="rgba(255, 255, 255, 0.12)"] { background: var(--color-gray-200) !im
 .dp-pk-rail { display: flex; gap: 40px; flex: none; padding: 8px 30px 8px 40px; position: relative; }
 .dp-pk-vert {
   font-family: var(--font-en-heading); font-weight: 800; align-self: flex-start;
-  writing-mode: vertical-rl; transform: rotate(180deg); white-space: nowrap;
+  writing-mode: sideways-rl; white-space: nowrap;
   font-size: 52px; line-height: 0.9; letter-spacing: 0.02em; color: var(--dp-ink);
 }
 .dp-pk-side { display: flex; flex-direction: column; justify-content: space-between; flex: none; }
