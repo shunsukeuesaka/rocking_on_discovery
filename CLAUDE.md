@@ -10,15 +10,16 @@
 
 1. **ガイドライン群**（デザインシステムの土台。まず `DESIGN.md` を読む）
    ```
-   /Users/uesakashunsuke/Desktop/rockin-on-pf/project/guideline/ForAI_DesignGuideline_by_UesakaShunsuke_V1.0.0/guideline/md/
+   project/guideline/ForAI_DesignGuideline_by_UesakaShunsuke_V1.0.0/guideline/md/
    ```
+   ※ パスはリポジトリ直下からの相対。`guideline/.../V1.0.0` は `design-guideline-uesaka` の **git submodule**（本家と同期）。クローン直後は `git submodule update --init --recursive` で取得すること。
    - `DESIGN.md` … 全ガイドラインのAI用サマリー（**最初に読む**）
    - `design-philosophy-uesaka.md` … 設計思想・絶対ルール（**P/V/S/I/N 体系**）
    - `style-guide-uesaka.md` … 色・タイポ・スペースのトークン定義（**トークンの上流**）
    - `grid-system-guideline.md` ほか … グリッド・図解・コンテンツ・素材・PDF 各仕様
 2. **プロジェクト固有仕様** `design.md`（画面インベントリ・コンポーネント実数値・レスポンシブ・例外）
    ```
-   /Users/uesakashunsuke/Desktop/rockin-on-pf/project/design.md
+   project/design.md
    ```
 
 色・サイズ・余白・角丸・フォントは推測せず、`uesaka_tokens.css`（上流 = `style-guide-uesaka.md`）の design token を `var(--*)` で参照する。

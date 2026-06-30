@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<title>Discovery — FB対応サマリ 2026.06.05</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  :root{
+    --bg:#FAF9F7; --surface:#F2F0ED; --ink:#1C1C1A; --sub:#55524C; --mute:#8A857C;
+    --border:#E2DFDA; --accent:#D93030; --red50:#FBEDEC; --red100:#F4D3D0;
+    --mono:"SFMono-Regular",ui-monospace,Menlo,Consolas,monospace;
+    --jp:"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{background:var(--bg);color:var(--ink);font-family:var(--jp);line-height:1.75;-webkit-font-smoothing:antialiased;}
+  .doc{max-width:900px;margin:0 auto;padding:64px 48px 96px;}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:600;}
+  h1{font-size:36px;letter-spacing:.01em;line-height:1.15;margin:10px 0 8px;font-weight:800;}
+  .lead{color:var(--sub);font-size:14px;max-width:680px;}
+  .meta{font-family:var(--mono);font-size:11px;color:var(--mute);letter-spacing:.1em;margin-top:14px;}
+  .rule{height:1px;background:var(--border);margin:32px 0;}
+  h2{font-size:11px;font-family:var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin:0 0 4px;}
+  .sec-title{font-size:22px;font-weight:800;letter-spacing:.01em;margin:0 0 18px;display:flex;align-items:baseline;gap:12px;}
+  .sec-title .n{font-family:var(--mono);font-size:13px;color:var(--mute);font-weight:600;}
+  section.block{margin:44px 0 0;}
+  ul.clean{list-style:none;display:flex;flex-direction:column;gap:8px;margin:6px 0 0;}
+  ul.clean li{position:relative;padding-left:20px;font-size:14px;color:var(--ink);}
+  ul.clean li::before{content:"";position:absolute;left:2px;top:11px;width:6px;height:6px;background:var(--accent);border-radius:1px;}
+  .item{border:1px solid var(--border);border-radius:4px;padding:20px 22px;margin-bottom:10px;background:var(--bg);}
+  .item .tag{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--mute);text-transform:uppercase;}
+  .item h3{font-size:15px;font-weight:700;margin:6px 0 10px;}
+  .item .fb{font-size:13px;color:var(--sub);background:var(--surface);border-radius:4px;padding:10px 12px;margin-bottom:12px;}
+  .item .fb b{color:var(--ink);font-weight:700;font-family:var(--mono);font-size:10px;letter-spacing:.12em;display:block;margin-bottom:4px;text-transform:uppercase;}
+  .item .ans{font-size:13.5px;color:var(--ink);}
+  .item .ans b{color:var(--accent);font-weight:700;font-family:var(--mono);font-size:10px;letter-spacing:.12em;display:block;margin-bottom:4px;text-transform:uppercase;}
+  .pill{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.1em;border:1px solid var(--border);border-radius:2px;padding:2px 8px;color:var(--sub);margin-left:auto;}
+  .note{font-size:12px;color:var(--mute);margin-top:8px;}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .foot{margin-top:48px;padding-top:20px;border-top:1px solid var(--border);font-size:12px;color:var(--mute);line-height:1.9;}
+  @media print{.doc{padding:28px;}section.block{break-inside:avoid;}.item{break-inside:avoid;}}
+  @media(max-width:680px){.grid2{grid-template-columns:1fr;}.doc{padding:40px 22px;}}
+</style>
+</head>
+<body>
+<div class="doc">
+  <div class="eyebrow">Discovery presented by rockin'on — Feedback Response</div>
+  <h1>求人サイトFB 対応サマリ</h1>
+  <p class="lead">2026.06.04 ご提供のフィードバックを、①プロトタイプに反映したもの／②ご相談・仕様判断が必要なもの／③進行・体制に関するもの、の3区分で整理しました。②③の見解は議論のたたき台であり、確定事項ではありません。</p>
+  <div class="meta">2026.06.05 · 一般公開サイト（SCR-001〜015）対応分</div>
+
+  <div class="rule"></div>
+
+  <!-- A -->
+  <section class="block">
+    <div class="sec-title"><span class="n">A</span>プロトタイプに反映済み — 公開サイト</div>
+    <ul class="clean">
+      <li><b>SCR-001 トップ</b>：ビジュアル強調のFVを廃止し、検索＋「新着の求人」中心の機能的な構成へ。注目求人（恣意的ピックアップ）・コラム枠を削除。</li>
+      <li><b>SCR-001/002 求人カード・一覧</b>：サムネイル画像枠（後から差し替え可能）と職種の詳細説明・カテゴリ表示を追加。</li>
+      <li><b>SCR-003 求人詳細</b>：閲覧数・応募数の表示を撤去／見出しを日本語化／「SIMILAR JOBS」を「この企業の他の求人」に変更／応募ボタンを〈サイト内フォーム〉と〈外部サイト〉の2分岐に／公開後の修正履歴の注記を追加。</li>
+      <li><b>SCR-004 応募フォーム</b>：サイト内応募を会員限定化（ログイン／会員登録ゲートを設置）。外部応募求人は会員不要で外部サイトへ誘導。</li>
+      <li><b>SCR-006 会員登録</b>：項目をメール・パスワード・氏名・生年月日・電話番号・住所に変更。希望職種／経験年数は登録時に求めず、マイページから任意設定に。メール認証の注記を追加。</li>
+      <li><b>SCR-007 ログイン</b>：SSOをGoogleのみに整理（X / Twitter を削除）。</li>
+      <li><b>SCR-008 マイページ</b>：通知設定から「コラム配信」を削除し「お気に入りの期限リマインド」「フォロー企業の新着」を追加／応募の進捗管理（書類選考・面接など）を廃止／掲載終了後も応募・お気に入り求人を閲覧可能に。</li>
+      <li><b>SCR-009 企業詳細</b>：フォロー機能に「新着求人を通知する」旨の説明を追加。</li>
+      <li><b>SCR-011 お気に入り一覧</b>：マイページと重複のため削除。<b>SCR-013 コラム</b>：初期実装では不要のため削除。</li>
+      <li><b>SCR-015 静的ページ</b>：お問い合わせを「企業の方」「ユーザーの方」の2フォームに分離。</li>
+    </ul>
+    <p class="note">※ サムネイル画像は差し替え用のスロットとして配置しています。実画像をドラッグ＆ドロップすると反映・保存されます。</p>
+  </section>
+
+  <!-- B -->
+  <section class="block">
+    <div class="sec-title"><span class="n">B</span>ご相談・仕様判断が必要な事項</div>
+
+    <div class="item">
+      <span class="tag">SCR-006 · 会員登録</span>
+      <h3>メールアドレスの認証</h3>
+      <div class="fb"><b>ご質問</b>本当に使われているメールアドレスか、認証をさせるのが良いか？</div>
+      <div class="ans"><b>たたき台</b>登録時に確認リンクを送る「ダブルオプトイン」を推奨します。なりすまし・誤登録・不達アドレスを防げ、実装コストも小さい想定です。認証完了までは応募不可とする運用が無難です。</div>
+    </div>
+
+    <div class="item">
+      <span class="tag">SCR-007 · ログイン</span>
+      <h3>SSO（ソーシャルログイン）の範囲</h3>
+      <div class="fb"><b>ご質問</b>SSOの実装コストは？初期はGoogleだけで良いか、メリット・デメリットを知りたい。</div>
+      <div class="ans"><b>たたき台</b>初期は<strong>Googleのみ</strong>を推奨（プロトタイプも反映済み）。利点＝登録離脱の低下・パスワード管理不要・本人性が比較的高い。留意点＝Googleアカウント保有が前提／障害時の影響。実装は OAuth 一系統のため小〜中。X等は需要を見て追加が可能です。</div>
+    </div>
+
+    <div class="item">
+      <span class="tag">SCR-003 · 求人詳細</span>
+      <h3>「似ている求人」のロジック</h3>
+      <div class="fb"><b>ご質問</b>SIMILAR JOBS のロジックはどう組むと良いか。複雑なら初期は不要では。</div>
+      <div class="ans"><b>たたき台</b>初期は<strong>同一企業の他求人への導線</strong>に置き換え済みです。類似度レコメンド（カテゴリ・タグ・勤務地の一致度）は次フェーズの拡張として段階的に検討します。</div>
+    </div>
+
+    <div class="item">
+      <span class="tag">SCR-009 · 企業フォロー</span>
+      <h3>フォロー機能＋企業一覧・検索</h3>
+      <div class="fb"><b>ご質問</b>フォローするなら新着通知が必要。企業の検索一覧も要る。工数は想定内か。</div>
+      <div class="ans"><b>たたき台</b>「フォロー＋新着求人通知」はMA連携で実現可能（プロトタイプに通知の導線を反映）。<strong>企業一覧／検索ページは新規画面</strong>のため今回は未着手。次フェーズで設計します。全体工数は中規模の見込みです。</div>
+    </div>
+
+    <div class="item">
+      <span class="tag">SCR-016 · 企業ログイン</span>
+      <h3>アカウント方式と認証</h3>
+      <div class="fb"><b>ご質問</b>1企業1アカウントか1人1アカウントか。権限管理は必要か。2段階認証は要るか。</div>
+      <div class="ans"><b>たたき台</b><strong>1人1アカウント＋企業内の権限管理</strong>を推奨（担当者の入れ替えやログ追跡に有利）。2段階認証は管理系操作に限定して導入する案が現実的です。</div>
+    </div>
+
+    <div class="item">
+      <span class="tag">開発機能 · プラン管理</span>
+      <h3>掲載プランの管理範囲</h3>
+      <div class="fb"><b>ご質問</b>最低限、企業の掲載数を制限したい。自由度はどこまで持たせられるか。</div>
+      <div class="ans"><b>たたき台</b>初期は<strong>「掲載枠数の上限管理」</strong>に絞り、プラン割当→企業側の同意→掲載可能枠の解放、という流れで実装。価格・期間などの細かな自由度は段階的に拡張します。</div>
+    </div>
+
+    <div class="item">
+      <span class="tag">開発機能 · 操作ログ</span>
+      <h3>操作ログの保持</h3>
+      <div class="fb"><b>ご質問</b>個人情報を扱うので操作ログを残したい。初期は管理画面で見られなくても良い。</div>
+      <div class="ans"><b>たたき台</b>全操作をログ基盤に保存し、<strong>後から追跡可能</strong>な仕組みを初期から用意。管理画面でのログ閲覧UIは次フェーズで追加します。</div>
+    </div>
+
+    <div class="item">
+      <span class="tag">SCR-033 / R69 · アナリティクス</span>
+      <h3>解析の方針とRO側の閲覧</h3>
+      <div class="fb"><b>ご質問</b>ログはどこに溜まるか。RO側で解析・閲覧できる状態か。GA等の外部ツールでも可。</div>
+      <div class="ans"><b>たたき台</b>求人単位の指標（PV・応募数など）はアプリ側で表示。全体傾向は <strong>GA4 等の外部ツール併用</strong>を許容し、RO側でも閲覧可能にします。詳細項目は別途擦り合わせ。</div>
+    </div>
+
+    <div class="item">
+      <span class="tag">R72 · 非機能要件</span>
+      <h3>レスポンス速度など</h3>
+      <div class="fb"><b>ご質問</b>非機能要件で想定しているものがあれば知りたい。</div>
+      <div class="ans"><b>たたき台</b>目標値の合意が必要です（例：主要ページの表示 LCP &lt; 2.5秒、検索応答 &lt; 1秒 など）。同時アクセス想定・ピーク時（フェス連動等）の負荷も併せて定義します。</div>
+    </div>
+  </section>
+
+  <!-- C -->
+  <section class="block">
+    <div class="sec-title"><span class="n">C</span>進行・体制・セキュリティ（別途ご回答）</div>
+    <div class="grid2">
+      <div class="item">
+        <span class="tag">R75 · 進行</span>
+        <h3>仕様書の提出</h3>
+        <div class="ans">要件確定の段階で仕様書を提出します。本サマリで論点を整理し、合意後に確定版へ。</div>
+      </div>
+      <div class="item">
+        <span class="tag">R76 · 体制</span>
+        <h3>AIの活用</h3>
+        <div class="ans">利用ツールと、業務上の秘密の入力可否・学習利用の有無について別途文書でご回答します。</div>
+      </div>
+      <div class="item">
+        <span class="tag">R77 · 体制</span>
+        <h3>コード管理</h3>
+        <div class="ans">バージョン管理の方針と、貴社への共有可否を別途ご提示します。</div>
+      </div>
+      <div class="item">
+        <span class="tag">R67 / SCR-032 · セキュリティ</span>
+        <h3>アクセス制限</h3>
+        <div class="ans">RO管理画面にIP制限。会員管理画面は限定PC（証明書）＋IPからのみアクセス可とする方針。</div>
+      </div>
+      <div class="item">
+        <span class="tag">R68 · 権限</span>
+        <h3>権限管理</h3>
+        <div class="ans">RO管理画面は Admin / editor / viewer の権限を設定可能に。</div>
+      </div>
+      <div class="item">
+        <span class="tag">R70 · フロント制御</span>
+        <h3>表示コントロール</h3>
+        <div class="ans">お知らせ・静的ページの表示をCMS的に制御する仕組みを用意。</div>
+      </div>
+      <div class="item">
+        <span class="tag">R71 · 連携</span>
+        <h3>MAツール連携</h3>
+        <div class="ans">SendGrid 等での連携を前提に、各種通知・リマインドを実装。</div>
+      </div>
+      <div class="item">
+        <span class="tag">R65 / R66 · 運用</span>
+        <h3>企業の利用開始フロー</h3>
+        <div class="ans">「RO追加→招待メール→初回ログイン時に規約・プラン同意→枠数解放」を機能化（次フェーズで画面化）。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Next -->
+  <section class="block">
+    <div class="sec-title"><span class="n">D</span>次フェーズで作成する新規画面</div>
+    <p class="lead" style="margin-bottom:14px;">今回は「既存画面の修正のみ」のご指定のため未着手。FB上「必要」とされた新規画面を次フェーズの候補として整理します。</p>
+    <ul class="clean">
+      <li>企業一覧・検索ページ（公開サイト）／お知らせ詳細ページ</li>
+      <li>SCR-022 応募者一括DL／SCR-024 企業プロフィール設定／SCR-025 通知設定／SCR-026 アカウント管理（権限）</li>
+      <li>SCR-031 企業管理（RO）／企業の利用開始フロー（招待・規約・プラン同意）</li>
+    </ul>
+  </section>
+
+  <div class="foot">
+    本資料の B・C 区分の見解は、現時点での提案（たたき台）です。確定にはお打ち合わせでのご判断をお願いします。<br>
+    Discovery presented by rockin'on — Prototype feedback response · 2026.06.05
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,15 @@
+# 重いバイナリ／素材はローカル保持のみ（git 履歴に入れない）
+# デザイン参照に必要な軽量テキスト（md/css/jsx/data/小さい html）だけを追跡する。
+
+# フォント実体（104MB / ttf 76個）。@font-face 参照用ローカル資産。
+fonts/
+
+# Figma 書き出しのフルバンドル standalone（フォントを base64 インライン化した 12MB）
+ro_discovery_standalone.html
+
+# Figma ソース（245MB 級。GitHub の 100MB 制限を超える）
+*.fig
+
+# macOS / Finder 生成物
+.DS_Store
+.thumbnail
