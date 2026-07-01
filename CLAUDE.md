@@ -22,7 +22,7 @@
    project/design.md
    ```
 
-色・サイズ・余白・角丸・フォントは推測せず、`uesaka_tokens.css`（上流 = `style-guide-uesaka.md`）の design token を `var(--*)` で参照する。
+色・サイズ・余白・角丸・フォントは推測せず、`uesaka_tokens.css`（上流 = `style-guide-uesaka.md`）の design token を `var(--*)` で参照する。**⚠️ 色の最終値は `design.md` §3.0 の「純モノクロ上書き」が正**：トークンCSS冒頭は accent＝赤 `#D93030` だが、実装では charcoal `#1C1C1A` に再マップされる（`prototype.css` 末尾の `MONOCHROME / WHITE-BG OVERRIDE` ブロックに集約）。トークン冒頭の赤を鵜呑みにしない。迷ったら実描画の算出値（devtools / preview_inspect）を確認する。
 
 同梱のプロトタイプ・トークン・スタイルは `design.md` と同じディレクトリにある:
 - `uesaka_tokens.css` … 全 design token（上流 = `style-guide-uesaka.md`）
@@ -30,6 +30,20 @@
 - `public_screens.jsx` / `public_aux.jsx` / `company_admin.jsx` … 各画面コンポーネント
 - `data.js` … モックデータ
 - `discovery.html` / `ro_discovery*.html` … エントリ・画面マッピング
+
+## 🟢 実装の所在（`src/` が本体・`project/` は参照専用）
+
+**⚠️ `project/` はデザイン参照・プロトタイプ置き場**。実際に動く React アプリと「生きたコード」は **`src/`** にある。両者は別ファイルで値が微妙に食い違うことがある（例：`.btn-primary` の padding が `project/styles.css`=`11px 24px` vs `src/styles/prototype.css`=`12px 24px`）。**実数値・現状のコンポーネントを確認・改修するときは必ず `src/` 側を正とする。**
+
+- **エントリ**: `index.html` → `src/main.tsx`（Vite + React 18 / TypeScript）
+- **生きたCSS**: `src/styles/prototype.css`（全画面スタイル。`project/styles.css` の移植版＝こちらが実際に読み込まれる）＋ `src/styles/states.css`（loading/empty/error）。**`project/*.css` は編集しても画面に反映されない。**
+- **画面**: `src/screens/`（public / console / admin）、共通は `src/components/`・`src/shell/`
+- **起動 / 確認**: `npm run dev`（`.claude/launch.json` の `dev` は `:5180` 固定）。画面遷移は **URL ルーティングではなく state ベース**（`src/app/AppShell.tsx` の `useState`）。画面の切替は上部 **DevNav の screen-picker（`■ SCR-xxx ▾`）**から `SCR-xxx` を選ぶ。ヘッダーのボタンを押しても画面遷移しないので注意。
+
+### ボタンは2系統ある
+- `btn-primary` / `btn-secondary` / `btn-ghost`（+ `btn-sm`）… 汎用フォーム系（ログイン・応募・管理画面など）。定義は `src/styles/prototype.css` の `BUTTONS` セクション。
+- `dp-btn`（`.ghost` / `.solid` / `.block`）… トップページ等 editorial 系のボタン。
+- どちらも角丸 `4px`・反シャドウ・モノクロ（accent は §3.0 で charcoal）。**新規UIでどちらを使うかは既存画面の系統に合わせる。**
 
 ### 絶対禁止（design-philosophy-uesaka.md / P・V・N 体系）
 
