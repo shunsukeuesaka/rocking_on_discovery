@@ -1177,7 +1177,7 @@ span[style*="rgba(255, 255, 255, 0.12)"] { background: var(--color-gray-200) !im
 .dp-iconlink:hover { opacity: 0.55; }
 .dp-btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-  height: 46px; padding: 0 26px; border-radius: 4px;
+  height: 36px; padding: 0 26px; border-radius: 4px;
   font-family: var(--font-jp-body); font-size: 14px; font-weight: 700; letter-spacing: 0.02em;
   cursor: pointer; transition: var(--transition-hover); white-space: nowrap;
 }
